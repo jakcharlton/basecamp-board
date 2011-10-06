@@ -1,9 +1,9 @@
 Basecamp::Application.routes.draw do
 
-  post "users/signin"
-  get "users/index"
+  post "users/signin", :as => :signin
+  get "users/index", :as => :signin_page
 
-  get "todo/index"
+  get "todo/index", :as => :wall
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

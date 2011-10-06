@@ -1,15 +1,19 @@
 <h1>Sign In</h1>
 
-<%= form_tag "/users/signin" do %>
-<div>
+
+<%= form_tag :signin, :class=> "form-stacked" do %>
+<% if flash[:notice] %>
+      <div class="alert-message error"><strong><%= flash[:notice] %></strong></div>
+<% end %>
+<div class="clearfix">
 <%= label_tag "Project" %><br>
 https:// <%= text_field_tag "project_url" %> .basecamphq.com
 </div>
-<div>
+<div class="clearfix">
 <%= label_tag "Username" %><br>
 <%= text_field_tag "username" %>
 </div>
-<div>
+<div class="clearfix">
 <%= label_tag "Password" %><br>
 <%= password_field_tag "password" %>
 </div>

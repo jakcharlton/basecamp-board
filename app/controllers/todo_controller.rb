@@ -12,7 +12,7 @@ class TodoController < ApplicationController
       @in_progress = all_todos.select{|todo| todo.status == :in_progress }
       @done = all_todos.select{|todo| todo.status == :done }
     rescue
-      redirect_to :controller => "users", :action => "index"
+      redirect_to (signin_page_url), :notice =>"There was a problem logging into Basecamp"
     end
 
   end
