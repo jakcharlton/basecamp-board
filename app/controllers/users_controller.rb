@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     
     session[:user] = user
 
-    redirect_to :controller => "todo", :action => "index"
+    redirect_to :controller => "todo"
   end
 
 end
