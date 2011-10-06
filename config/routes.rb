@@ -1,4 +1,8 @@
 Basecamp::Application.routes.draw do
+
+  post "users/signin"
+  get "users/index"
+
   get "todo/index"
 
   # The priority is based upon order of creation:
