@@ -14,6 +14,8 @@ module BasecampHelper
     todo_items
    end
   
+  protected
+  
   def self.get_status(todo_item)
   	return :done if todo_item.completed? 
   	return :in_progress if todo_item.content =~ /\*\* in progress \*\*/ 
