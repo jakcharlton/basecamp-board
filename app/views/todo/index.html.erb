@@ -37,28 +37,30 @@
 
 
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
+ <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/jquery-ui.js"></script>
+
         </script>
 
 <script type="text/javascript">
 $('document').ready(init);
 
         function init(){
-            $('.can-be-dragged').bind('dragstart', function(event) {
-                event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
-            });
+            $('.can-be-dragged').draggable({ revert: "invalid" });
             
-   // bind the dragover event on the board sections
-            $('.status-column').bind('dragover', function(event) {
-                event.preventDefault();
-            });
-
+			$('.status-column').droppable({
+						hoverClass: "ui-state-active",
+						drop: function( event, ui ) {
+							ui.draggable.appendTo($(this))
+							
+						}
+					});
 // bind the drop event on the board sections
-   $('.status-column').bind('drop', function(event) {
-            var notecard = event.originalEvent.dataTransfer.getData("text/plain");
-            event.target.appendChild(document.getElementById(notecard));
-            event.preventDefault(); // without this, FF will try and go to a URL with your id's name
-});
+//   $('.status-column').bind('drop', function(event, ui) {
+//            var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+//            event.target.appendChild(document.getElementById(notecard));
+//            event.preventDefault(); // without this, FF will try and go to a URL with your id's name
+//});
         }
 </script>
 
