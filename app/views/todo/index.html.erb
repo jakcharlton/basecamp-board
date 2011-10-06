@@ -1,0 +1,64 @@
+
+
+    <div id="board">
+        <div id="todo" class="status-column">
+         <div class="title">To Do</div>
+         <% @todo.each do |todo| %>
+         <div id="<%= todo.id %>" draggable="true" class="can-be-dragged">
+            <div class="cardTitle">
+                <%= "#{todo.list_name} : #{todo.display_title}" %>
+            </div>
+        </div>
+		<% end %>
+    </div>
+	<div id="inprogress" class="status-column">
+	<div class="title">In Progress</div>
+	     <% @in_progress.each do |todo| %>
+         <div id="<%= todo.id %>" draggable="true" class="can-be-dragged">
+            <div class="cardTitle">
+                <%= "#{todo.list_name} : #{todo.display_title}" %>
+            </div>
+        </div>
+		<% end %>
+	</div>
+
+	<div id="done" class="status-column">
+	<div class="title">Done</div>
+	    <% @done.each do |todo| %>
+         <div id="<%= todo.id %>" draggable="true" class="can-be-dragged">
+            <div class="cardTitle">
+                <%= "#{todo.list_name} : #{todo.display_title}" %>
+            </div>
+        </div>
+		<% end %>
+	</div>
+
+
+
+
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
+        </script>
+
+<script type="text/javascript">
+$('document').ready(init);
+
+        function init(){
+            $('.can-be-dragged').bind('dragstart', function(event) {
+                event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+            });
+            
+   // bind the dragover event on the board sections
+            $('.status-column').bind('dragover', function(event) {
+                event.preventDefault();
+            });
+
+// bind the drop event on the board sections
+   $('.status-column').bind('drop', function(event) {
+            var notecard = event.originalEvent.dataTransfer.getData("text/plain");
+            event.target.appendChild(document.getElementById(notecard));
+            event.preventDefault(); // without this, FF will try and go to a URL with your id's name
+});
+        }
+</script>
+
