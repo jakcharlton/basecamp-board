@@ -6,81 +6,14 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
-
+  <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/jquery-ui.js"></script>
 <style>
-body
-{
-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-#board
-{
-width: 910px;
-min-height:100px;
+body { font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-position:relative;
-}
-
-.title
-{
-background-color:#52460a;
-text-align:center;
-color:white;
-padding: 2px 0px;
-}
-
-#inprogress
-{
-left:302px;
-}
-
-#done
-{
-left:604px;
-}
-
-#todo, #inprogress, #done
-{
-background-color: tan;
-
-position:absolute;
-
-width: 300px;
-min-height:150px;
-border: 2px solid black;
-
-}
-
-*[draggable=true]
-{
-float:left;
-min-width: 50px;
-min-height: 50px;
-border: 2px solid black;
-margin: 10px;
-
-font-weight:bold;
-
-min-height:60px;
-background-image: -webkit-gradient(linear,
-             left top, left bottom,
-color-stop(0.63, white),
-             color-stop(0.92, rgb(5,161,245)));
-                    background-image:-moz-linear-gradient(
-                        center top,
-                        white 63%,
-                        rgb(5,161,245) 92%
-                    );
-             -webkit-background-size:1px 8px;
-             -moz-background-size:1px 8px;
-             background-size:1px 8px;
-background-repeat:repeat;
-}
-
-.cardTitle
-{
-background-color: rgb(255,255,255);
-border:2px solid white;
-}
+.swimlane { width:300px; float:left; border:1px solid #666; min-height:100%;}
+.cardarea { list-style-type: none; float: left; background: #aaa; padding:0px; margin:0px; min-height:50px; width:300px;}
+.cardarea li { margin: 10px 0px 10px 0px; padding: 5px;  }
 
 </style>
 </head>
