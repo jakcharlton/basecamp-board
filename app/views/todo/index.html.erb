@@ -4,7 +4,7 @@
     <div id="board">
         <div class="swimlane">
         <h2 class="title">To Do</h2>
-        <ul id="sortable1" class="cardarea">
+        <ul id="sortable1" class="card-area">
          <% @todo.each do |todo| %>
          <li id="<%= todo.id %>" class="ui-state-default" >
                 <%= "#{todo.list_name} : #{todo.display_title}" %>
@@ -13,7 +13,7 @@
         </ul>
         </div>
         <div class="swimlane"><h2 class="title">In Progress</h2>
-	   <ul id="sortable2" class="cardarea">
+	   <ul id="sortable2" class="card-area">
 	     <% @in_progress.each do |todo| %>
          <li id="<%= todo.id %>"  class="ui-state-default">
                 <%= "#{todo.list_name} : #{todo.display_title}" %>
@@ -22,7 +22,7 @@
 	   </ul>
     </div>
     <div class="swimlane"><h2 class="title">Done</h2>
-	<ul id="sortable3" class="cardarea">
+	<ul id="sortable3" class="card-area">
 	    <% @done.each do |todo| %>
          <li id="<%= todo.id %>"  class="ui-state-default">
                 <%= "#{todo.list_name} : #{todo.display_title}" %>
