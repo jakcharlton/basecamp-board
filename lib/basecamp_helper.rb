@@ -6,7 +6,7 @@ module BasecampHelper
     	item = Basecamp::TodoItem.find(:all, :params => { :todo_list_id => todo_list.id }).flatten
         todo_items += item.map do |item| 
 	        item.list_name = todo_list.name
-	        item.display_title = item.content.gsub(/\*\* in progress \*\*/, "")
+	        item.display_title = item.content.gsub(/#inprogress/, "")
 	    	item.status = get_status item
 	    	item
 	    end
@@ -18,7 +18,7 @@ module BasecampHelper
   
   def self.get_status(todo_item)
   	return :done if todo_item.completed? 
-  	return :in_progress if todo_item.content =~ /\*\* in progress \*\*/ 
+  	return :in_progress if todo_item.content =~ /#inprogress/ 
   	:to_do
   end
 end
